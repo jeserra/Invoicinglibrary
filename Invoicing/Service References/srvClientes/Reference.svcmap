@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1183da09-334f-4d22-801a-9b508c59d076" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioClientes.xsd" MetadataType="Schema" ID="24776a3a-d9cf-44dd-a0f3-9e560d91ed19" SourceId="1" SourceUrl="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioClientes.disco" MetadataType="Disco" ID="065c2a0b-8c95-4eef-83ec-26fd740c7719" SourceId="1" SourceUrl="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc?disco" />
+    <MetadataFile FileName="ServicioClientes1.xsd" MetadataType="Schema" ID="cd682726-a123-41b6-814c-b1382553ffdc" SourceId="1" SourceUrl="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc?xsd=xsd0" />
+    <MetadataFile FileName="Clientes.wsdl" MetadataType="Wsdl" ID="2db86e6a-588c-43c6-8ea2-270d9535d4e6" SourceId="1" SourceUrl="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc?wsdl" />
+    <MetadataFile FileName="ServicioClientes2.xsd" MetadataType="Schema" ID="d21b7cc8-7974-4555-b863-597573637509" SourceId="1" SourceUrl="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

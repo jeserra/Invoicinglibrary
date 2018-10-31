@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://Ecodex.WS.Model/2011/CFDI" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Timbrado" targetNamespace="http://Ecodex.WS.Model/2011/CFDI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="PuertoTimbradoSeguro_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://Ecodex.WS.Model/2011/CFDI/Imports">
+      <xsd:import schemaLocation="https://pruebas.ecodex.com.mx:2045/ServicioTimbrado.svc?xsd=xsd0" namespace="http://Ecodex.WS.Model/2011/CFDI" />
+      <xsd:import schemaLocation="https://pruebas.ecodex.com.mx:2045/ServicioTimbrado.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SolicitudTimbraXML">
+    <wsdl:part name="parameters" element="tns:SolicitudTimbraXML" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaTimbraXML">
+    <wsdl:part name="parameters" element="tns:RespuestaTimbraXML" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_TimbraXML_FallaSesionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaSesion" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_TimbraXML_FallaValidacionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaValidacion" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_TimbraXML_FallaServicioFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaServicio" />
+  </wsdl:message>
+  <wsdl:message name="SolicitudCancelaTimbrado">
+    <wsdl:part name="parameters" element="tns:SolicitudCancelaTimbrado" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaCancelaTimbrado">
+    <wsdl:part name="parameters" element="tns:RespuestaCancelaTimbrado" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_CancelaTimbrado_FallaServicioFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaServicio" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_CancelaTimbrado_FallaValidacionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaValidacion" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_CancelaTimbrado_FallaSesionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaSesion" />
+  </wsdl:message>
+  <wsdl:message name="SolicitudEstatusTimbrado">
+    <wsdl:part name="parameters" element="tns:SolicitudEstatusTimbrado" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaEstatusTimbrado">
+    <wsdl:part name="parameters" element="tns:RespuestaEstatusTimbrado" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_EstatusTimbrado_FallaValidacionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaValidacion" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_EstatusTimbrado_FallaServicioFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaServicio" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_EstatusTimbrado_FallaSesionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaSesion" />
+  </wsdl:message>
+  <wsdl:message name="SolicitudObtenerTimbrado">
+    <wsdl:part name="parameters" element="tns:SolicitudObtenerTimbrado" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaObtenerTimbrado">
+    <wsdl:part name="parameters" element="tns:RespuestaObtenerTimbrado" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_ObtenerTimbrado_FallaSesionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaSesion" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_ObtenerTimbrado_FallaValidacionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaValidacion" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_ObtenerTimbrado_FallaServicioFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaServicio" />
+  </wsdl:message>
+  <wsdl:message name="SolicitudObtenerQRTimbrado">
+    <wsdl:part name="parameters" element="tns:SolicitudObtenerQRTimbrado" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaObtenerQRTimbrado">
+    <wsdl:part name="parameters" element="tns:RespuestaObtenerQRTimbrado" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_ObtenerQRTimbrado_FallaSesionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaSesion" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_ObtenerQRTimbrado_FallaServicioFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaServicio" />
+  </wsdl:message>
+  <wsdl:message name="Timbrado_ObtenerQRTimbrado_FallaValidacionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaValidacion" />
+  </wsdl:message>
+  <wsdl:portType name="Timbrado">
+    <wsdl:operation name="TimbraXML">
+      <wsdl:input wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/TimbraXML" name="SolicitudTimbraXML" message="tns:SolicitudTimbraXML" />
+      <wsdl:output wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/TimbraXMLResponse" name="RespuestaTimbraXML" message="tns:RespuestaTimbraXML" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/TimbraXMLFallaSesionFault" name="FallaSesionFault" message="tns:Timbrado_TimbraXML_FallaSesionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/TimbraXMLFallaValidacionFault" name="FallaValidacionFault" message="tns:Timbrado_TimbraXML_FallaValidacionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/TimbraXMLFallaServicioFault" name="FallaServicioFault" message="tns:Timbrado_TimbraXML_FallaServicioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelaTimbrado">
+      <wsdl:input wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/CancelaTimbrado" name="SolicitudCancelaTimbrado" message="tns:SolicitudCancelaTimbrado" />
+      <wsdl:output wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/CancelaTimbradoResponse" name="RespuestaCancelaTimbrado" message="tns:RespuestaCancelaTimbrado" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/CancelaTimbradoFallaServicioFault" name="FallaServicioFault" message="tns:Timbrado_CancelaTimbrado_FallaServicioFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/CancelaTimbradoFallaValidacionFault" name="FallaValidacionFault" message="tns:Timbrado_CancelaTimbrado_FallaValidacionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/CancelaTimbradoFallaSesionFault" name="FallaSesionFault" message="tns:Timbrado_CancelaTimbrado_FallaSesionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EstatusTimbrado">
+      <wsdl:input wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/EstatusTimbrado" name="SolicitudEstatusTimbrado" message="tns:SolicitudEstatusTimbrado" />
+      <wsdl:output wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/EstatusTimbradoResponse" name="RespuestaEstatusTimbrado" message="tns:RespuestaEstatusTimbrado" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/EstatusTimbradoFallaValidacionFault" name="FallaValidacionFault" message="tns:Timbrado_EstatusTimbrado_FallaValidacionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/EstatusTimbradoFallaServicioFault" name="FallaServicioFault" message="tns:Timbrado_EstatusTimbrado_FallaServicioFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/EstatusTimbradoFallaSesionFault" name="FallaSesionFault" message="tns:Timbrado_EstatusTimbrado_FallaSesionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTimbrado">
+      <wsdl:input wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerTimbrado" name="SolicitudObtenerTimbrado" message="tns:SolicitudObtenerTimbrado" />
+      <wsdl:output wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerTimbradoResponse" name="RespuestaObtenerTimbrado" message="tns:RespuestaObtenerTimbrado" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerTimbradoFallaSesionFault" name="FallaSesionFault" message="tns:Timbrado_ObtenerTimbrado_FallaSesionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerTimbradoFallaValidacionFault" name="FallaValidacionFault" message="tns:Timbrado_ObtenerTimbrado_FallaValidacionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerTimbradoFallaServicioFault" name="FallaServicioFault" message="tns:Timbrado_ObtenerTimbrado_FallaServicioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerQRTimbrado">
+      <wsdl:input wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerQRTimbrado" name="SolicitudObtenerQRTimbrado" message="tns:SolicitudObtenerQRTimbrado" />
+      <wsdl:output wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerQRTimbradoResponse" name="RespuestaObtenerQRTimbrado" message="tns:RespuestaObtenerQRTimbrado" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerQRTimbradoFallaSesionFault" name="FallaSesionFault" message="tns:Timbrado_ObtenerQRTimbrado_FallaSesionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerQRTimbradoFallaServicioFault" name="FallaServicioFault" message="tns:Timbrado_ObtenerQRTimbrado_FallaServicioFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerQRTimbradoFallaValidacionFault" name="FallaValidacionFault" message="tns:Timbrado_ObtenerQRTimbrado_FallaValidacionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PuertoTimbradoSeguro" type="tns:Timbrado">
+    <wsp:PolicyReference URI="#PuertoTimbradoSeguro_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TimbraXML">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/TimbraXML" style="document" />
+      <wsdl:input name="SolicitudTimbraXML">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaTimbraXML">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelaTimbrado">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/CancelaTimbrado" style="document" />
+      <wsdl:input name="SolicitudCancelaTimbrado">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaCancelaTimbrado">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EstatusTimbrado">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/EstatusTimbrado" style="document" />
+      <wsdl:input name="SolicitudEstatusTimbrado">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaEstatusTimbrado">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTimbrado">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerTimbrado" style="document" />
+      <wsdl:input name="SolicitudObtenerTimbrado">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaObtenerTimbrado">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerQRTimbrado">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerQRTimbrado" style="document" />
+      <wsdl:input name="SolicitudObtenerQRTimbrado">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaObtenerQRTimbrado">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PuertoTimbrado" type="tns:Timbrado">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TimbraXML">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/TimbraXML" style="document" />
+      <wsdl:input name="SolicitudTimbraXML">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaTimbraXML">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelaTimbrado">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/CancelaTimbrado" style="document" />
+      <wsdl:input name="SolicitudCancelaTimbrado">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaCancelaTimbrado">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EstatusTimbrado">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/EstatusTimbrado" style="document" />
+      <wsdl:input name="SolicitudEstatusTimbrado">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaEstatusTimbrado">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTimbrado">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerTimbrado" style="document" />
+      <wsdl:input name="SolicitudObtenerTimbrado">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaObtenerTimbrado">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerQRTimbrado">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/Timbrado/ObtenerQRTimbrado" style="document" />
+      <wsdl:input name="SolicitudObtenerQRTimbrado">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaObtenerQRTimbrado">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Timbrado">
+    <wsdl:port name="PuertoTimbradoSeguro" binding="tns:PuertoTimbradoSeguro">
+      <soap:address location="https://pruebas.ecodex.com.mx:2045/ServicioTimbrado.svc" />
+    </wsdl:port>
+    <wsdl:port name="PuertoTimbrado" binding="tns:PuertoTimbrado">
+      <soap:address location="http://pruebas.ecodex.com.mx:2044/ServicioTimbrado.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

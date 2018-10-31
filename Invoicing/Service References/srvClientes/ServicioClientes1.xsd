@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Ecodex.WS.Model/2011/CFDI" elementFormDefault="qualified" targetNamespace="http://Ecodex.WS.Model/2011/CFDI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="SolicitudAvisosNuevos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RespuestaAvisosNuevos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Avisos" nillable="true" type="tns:Avisos" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Avisos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Aviso" nillable="true" type="tns:Aviso" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Avisos" nillable="true" type="tns:Avisos" />
+  <xs:complexType name="Aviso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Vigencia" type="xs:dateTime" />
+      <xs:element name="Mensaje" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Aviso" nillable="true" type="tns:Aviso" />
+  <xs:complexType name="FallaSesion">
+    <xs:sequence>
+      <xs:element name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estatus" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FallaSesion" nillable="true" type="tns:FallaSesion" />
+  <xs:complexType name="FallaServicio">
+    <xs:sequence>
+      <xs:element name="RFC" nillable="true" type="xs:string" />
+      <xs:element name="Numero" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Evento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FallaServicio" nillable="true" type="tns:FallaServicio" />
+  <xs:element name="SolicitudEstatusCuenta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RespuestaEstatusCuenta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Estatus" nillable="true" type="tns:CuentaEstatus" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CuentaEstatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaInicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaFin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimbresAsignados" type="xs:int" />
+      <xs:element minOccurs="0" name="TimbresDisponibles" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Certificados" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CuentaEstatus" nillable="true" type="tns:CuentaEstatus" />
+  <xs:element name="SolicitudRegistroCliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Emisor" nillable="true" type="tns:AltaEmisor" />
+        <xs:element minOccurs="0" name="RfcIntegrador" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AltaEmisor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RazonSocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CorreoElectronico" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AltaEmisor" nillable="true" type="tns:AltaEmisor" />
+  <xs:element name="RespuestaRegistro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Respuesta" nillable="true" type="tns:ResultadoRegistroEmisor" />
+        <xs:element minOccurs="0" name="TransaccionId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResultadoRegistroEmisor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClaveCertificado" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultadoRegistroEmisor" nillable="true" type="tns:ResultadoRegistroEmisor" />
+  <xs:complexType name="FallaValidacion">
+    <xs:sequence>
+      <xs:element name="RFC" nillable="true" type="xs:string" />
+      <xs:element name="Numero" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nodo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Antecedente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sugerencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Evento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FallaValidacion" nillable="true" type="tns:FallaValidacion" />
+  <xs:element name="SolicitudAsignacionTimbres">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TimbresAsignar" type="xs:int" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RespuestaAsignacionTimbres">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaldoAnterior" type="xs:long" />
+        <xs:element minOccurs="0" name="SaldoNuevo" type="xs:int" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

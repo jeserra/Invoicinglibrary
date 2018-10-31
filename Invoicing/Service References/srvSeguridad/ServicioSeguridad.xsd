@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Ecodex.WS.Model/2011/CFDI" elementFormDefault="qualified" targetNamespace="http://Ecodex.WS.Model/2011/CFDI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SolicitudObtenerToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RespuestaObtenerToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FallaServicio">
+    <xs:sequence>
+      <xs:element name="RFC" nillable="true" type="xs:string" />
+      <xs:element name="Numero" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Evento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FallaServicio" nillable="true" type="tns:FallaServicio" />
+  <xs:complexType name="FallaSesion">
+    <xs:sequence>
+      <xs:element name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estatus" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FallaSesion" nillable="true" type="tns:FallaSesion" />
+</xs:schema>

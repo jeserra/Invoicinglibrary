@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://Ecodex.WS.Model/2011/CFDI" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Clientes" targetNamespace="http://Ecodex.WS.Model/2011/CFDI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="PuertoClientesSeguro_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://Ecodex.WS.Model/2011/CFDI/Imports">
+      <xsd:import schemaLocation="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc?xsd=xsd0" namespace="http://Ecodex.WS.Model/2011/CFDI" />
+      <xsd:import schemaLocation="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SolicitudAvisosNuevos">
+    <wsdl:part name="parameters" element="tns:SolicitudAvisosNuevos" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaAvisosNuevos">
+    <wsdl:part name="parameters" element="tns:RespuestaAvisosNuevos" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_AvisosNuevos_FallaSesionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaSesion" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_AvisosNuevos_FallaServicioFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaServicio" />
+  </wsdl:message>
+  <wsdl:message name="SolicitudEstatusCuenta">
+    <wsdl:part name="parameters" element="tns:SolicitudEstatusCuenta" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaEstatusCuenta">
+    <wsdl:part name="parameters" element="tns:RespuestaEstatusCuenta" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_EstatusCuenta_FallaServicioFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaServicio" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_EstatusCuenta_FallaSesionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaSesion" />
+  </wsdl:message>
+  <wsdl:message name="SolicitudRegistroCliente">
+    <wsdl:part name="parameters" element="tns:SolicitudRegistroCliente" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaRegistro">
+    <wsdl:part name="parameters" element="tns:RespuestaRegistro" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_Registrar_FallaSesionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaSesion" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_Registrar_FallaValidacionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaValidacion" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_Registrar_FallaServicioFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaServicio" />
+  </wsdl:message>
+  <wsdl:message name="SolicitudAsignacionTimbres">
+    <wsdl:part name="parameters" element="tns:SolicitudAsignacionTimbres" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaAsignacionTimbres">
+    <wsdl:part name="parameters" element="tns:RespuestaAsignacionTimbres" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_AsignacionTimbres_FallaServicioFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaServicio" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_AsignacionTimbres_FallaValidacionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaValidacion" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_AsignacionTimbres_FallaSesionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:FallaSesion" />
+  </wsdl:message>
+  <wsdl:portType name="Clientes">
+    <wsdl:operation name="AvisosNuevos">
+      <wsdl:input wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/ServicioClientes/AvisosNuevos" name="SolicitudAvisosNuevos" message="tns:SolicitudAvisosNuevos" />
+      <wsdl:output wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/AvisosNuevosResponse" name="RespuestaAvisosNuevos" message="tns:RespuestaAvisosNuevos" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/AvisosNuevosFallaSesionFault" name="FallaSesionFault" message="tns:Clientes_AvisosNuevos_FallaSesionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/AvisosNuevosFallaServicioFault" name="FallaServicioFault" message="tns:Clientes_AvisosNuevos_FallaServicioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EstatusCuenta">
+      <wsdl:input wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/ServicioClientes/EstatusCuenta" name="SolicitudEstatusCuenta" message="tns:SolicitudEstatusCuenta" />
+      <wsdl:output wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/EstatusCuentaResponse" name="RespuestaEstatusCuenta" message="tns:RespuestaEstatusCuenta" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/EstatusCuentaFallaServicioFault" name="FallaServicioFault" message="tns:Clientes_EstatusCuenta_FallaServicioFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/EstatusCuentaFallaSesionFault" name="FallaSesionFault" message="tns:Clientes_EstatusCuenta_FallaSesionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Registrar">
+      <wsdl:input wsaw:Action="Registrar" name="SolicitudRegistroCliente" message="tns:SolicitudRegistroCliente" />
+      <wsdl:output wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/RegistrarResponse" name="RespuestaRegistro" message="tns:RespuestaRegistro" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/RegistrarFallaSesionFault" name="FallaSesionFault" message="tns:Clientes_Registrar_FallaSesionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/RegistrarFallaValidacionFault" name="FallaValidacionFault" message="tns:Clientes_Registrar_FallaValidacionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/RegistrarFallaServicioFault" name="FallaServicioFault" message="tns:Clientes_Registrar_FallaServicioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignacionTimbres">
+      <wsdl:input wsaw:Action="AsignacionTimbres" name="SolicitudAsignacionTimbres" message="tns:SolicitudAsignacionTimbres" />
+      <wsdl:output wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/AsignacionTimbresResponse" name="RespuestaAsignacionTimbres" message="tns:RespuestaAsignacionTimbres" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/AsignacionTimbresFallaServicioFault" name="FallaServicioFault" message="tns:Clientes_AsignacionTimbres_FallaServicioFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/AsignacionTimbresFallaValidacionFault" name="FallaValidacionFault" message="tns:Clientes_AsignacionTimbres_FallaValidacionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://Ecodex.WS.Model/2011/CFDI/Clientes/AsignacionTimbresFallaSesionFault" name="FallaSesionFault" message="tns:Clientes_AsignacionTimbres_FallaSesionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PuertoClientesSeguro" type="tns:Clientes">
+    <wsp:PolicyReference URI="#PuertoClientesSeguro_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AvisosNuevos">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/ServicioClientes/AvisosNuevos" style="document" />
+      <wsdl:input name="SolicitudAvisosNuevos">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaAvisosNuevos">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EstatusCuenta">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/ServicioClientes/EstatusCuenta" style="document" />
+      <wsdl:input name="SolicitudEstatusCuenta">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaEstatusCuenta">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Registrar">
+      <soap:operation soapAction="Registrar" style="document" />
+      <wsdl:input name="SolicitudRegistroCliente">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaRegistro">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AsignacionTimbres">
+      <soap:operation soapAction="AsignacionTimbres" style="document" />
+      <wsdl:input name="SolicitudAsignacionTimbres">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaAsignacionTimbres">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PuertoClientes" type="tns:Clientes">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AvisosNuevos">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/ServicioClientes/AvisosNuevos" style="document" />
+      <wsdl:input name="SolicitudAvisosNuevos">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaAvisosNuevos">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EstatusCuenta">
+      <soap:operation soapAction="http://Ecodex.WS.Model/2011/CFDI/ServicioClientes/EstatusCuenta" style="document" />
+      <wsdl:input name="SolicitudEstatusCuenta">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaEstatusCuenta">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Registrar">
+      <soap:operation soapAction="Registrar" style="document" />
+      <wsdl:input name="SolicitudRegistroCliente">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaRegistro">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AsignacionTimbres">
+      <soap:operation soapAction="AsignacionTimbres" style="document" />
+      <wsdl:input name="SolicitudAsignacionTimbres">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RespuestaAsignacionTimbres">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FallaServicioFault">
+        <soap:fault use="literal" name="FallaServicioFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaValidacionFault">
+        <soap:fault use="literal" name="FallaValidacionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FallaSesionFault">
+        <soap:fault use="literal" name="FallaSesionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Clientes">
+    <wsdl:port name="PuertoClientesSeguro" binding="tns:PuertoClientesSeguro">
+      <soap:address location="https://pruebas.ecodex.com.mx:2045/ServicioClientes.svc" />
+    </wsdl:port>
+    <wsdl:port name="PuertoClientes" binding="tns:PuertoClientes">
+      <soap:address location="http://pruebas.ecodex.com.mx:2044/ServicioClientes.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

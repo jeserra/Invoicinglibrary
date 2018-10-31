@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Ecodex.WS.Model/2011/CFDI" elementFormDefault="qualified" targetNamespace="http://Ecodex.WS.Model/2011/CFDI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SolicitudTimbraXML">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ComprobanteXML" nillable="true" type="tns:ComprobanteXML" />
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ComprobanteXML">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DatosXML" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ComprobanteXML" nillable="true" type="tns:ComprobanteXML" />
+  <xs:element name="RespuestaTimbraXML">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Advertencias" nillable="true" type="tns:AdvertenciasValidacion" />
+        <xs:element minOccurs="0" name="ComprobanteXML" nillable="true" type="tns:ComprobanteXML" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AdvertenciasValidacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdvertenciaValidacion" nillable="true" type="tns:AdvertenciaValidacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdvertenciasValidacion" nillable="true" type="tns:AdvertenciasValidacion" />
+  <xs:complexType name="AdvertenciaValidacion">
+    <xs:sequence>
+      <xs:element name="Nodo" nillable="true" type="xs:string" />
+      <xs:element name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Antecedente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sugerencia" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdvertenciaValidacion" nillable="true" type="tns:AdvertenciaValidacion" />
+  <xs:complexType name="FallaSesion">
+    <xs:sequence>
+      <xs:element name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estatus" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FallaSesion" nillable="true" type="tns:FallaSesion" />
+  <xs:complexType name="FallaValidacion">
+    <xs:sequence>
+      <xs:element name="RFC" nillable="true" type="xs:string" />
+      <xs:element name="Numero" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nodo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Antecedente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sugerencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Evento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FallaValidacion" nillable="true" type="tns:FallaValidacion" />
+  <xs:complexType name="FallaServicio">
+    <xs:sequence>
+      <xs:element name="RFC" nillable="true" type="xs:string" />
+      <xs:element name="Numero" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Evento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FallaServicio" nillable="true" type="tns:FallaServicio" />
+  <xs:element name="SolicitudCancelaTimbrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+        <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RespuestaCancelaTimbrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cancelada" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SolicitudEstatusTimbrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+        <xs:element minOccurs="0" name="TransaccionOriginal" type="xs:long" />
+        <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RespuestaEstatusTimbrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Estatus" nillable="true" type="tns:ComprobanteEstatus" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ComprobanteEstatus">
+    <xs:sequence>
+      <xs:element name="UUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UltimaActualizacion" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ComprobanteEstatus" nillable="true" type="tns:ComprobanteEstatus" />
+  <xs:element name="SolicitudObtenerTimbrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+        <xs:element minOccurs="0" name="TransaccionOriginal" type="xs:long" />
+        <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RespuestaObtenerTimbrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ComprobanteXML" nillable="true" type="tns:ComprobanteXML" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SolicitudObtenerQRTimbrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+        <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RespuestaObtenerQRTimbrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QR" nillable="true" type="tns:InformacionQR" />
+        <xs:element minOccurs="0" name="TransaccionID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="InformacionQR">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Imagen" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InformacionQR" nillable="true" type="tns:InformacionQR" />
+</xs:schema>
