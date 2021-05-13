@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Text;
-using Invoicing.Utils;
+using InvoicingLibrary.Utils;
 using System.Xml.Serialization;
-using Invoicing.Interfaces;
+using InvoicingLibrary.Interfaces;
 using System.IO;
 
-namespace Invoicing.CFDI
+namespace InvoicingLibrary.CFDI
 {
     public class CFDIv33:CFDIBase
     {
@@ -31,7 +31,7 @@ namespace Invoicing.CFDI
             return XmlSerializerHelper.ToXmlString<cfdi33.Comprobante>(comprobante, ns, Encoding.UTF8);
         }
 
-        public  string CreateCFDI(Invoicing.BindingModels.Comprobante apiComprobante, bool Timbrado = true)
+        public  string CreateCFDI(InvoicingLibrary.BindingModels.Comprobante apiComprobante, bool Timbrado = true)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Invoicing.CFDI
 
         }
 
-        public string Timbrar(Invoicing.BindingModels.Comprobante apiComprobante, string xmlComprobanteSellado, long transaccion)
+        public string Timbrar(InvoicingLibrary.BindingModels.Comprobante apiComprobante, string xmlComprobanteSellado, long transaccion)
         {
             try
             {  

@@ -10,9 +10,9 @@ using System.Xml;
 using System.IO;
  
 using iText.Layout.Borders;
-using Invoicing.Translates;
+using InvoicingLibrary.Translates;
 using iText.IO.Image;
-using Invoicing.Utils;
+using InvoicingLibrary.Utils;
 using iText.Kernel.Font;
 using iText.Kernel.Colors;
 using iText.IO.Font;
@@ -22,7 +22,7 @@ using iText.Kernel.Geom;
 using iText.Kernel.Pdf.Canvas;
 using iText.Kernel.Pdf.Xobject;
 
-namespace Invoicing.Print
+namespace InvoicingLibrary.Print
 {
     public class PrintPDFService
     {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Invoicing.BindingModels;
+using InvoicingLibrary.BindingModels;
 using System.Xml.Serialization;
-using Invoicing.Utils;
+using InvoicingLibrary.Utils;
 
-namespace Invoicing.Translates
+namespace InvoicingLibrary.Translates
 {
     public class TranslateModelToCFDI
     {
@@ -19,13 +19,13 @@ namespace Invoicing.Translates
                 var cfdi33 = new cfdi33.Comprobante()
             {
                 // TODO: revisar si se aplican descuento, 
-                Emisor = new Invoicing.cfdi33.ComprobanteEmisor()
+                Emisor = new InvoicingLibrary.cfdi33.ComprobanteEmisor()
                 {
                     Rfc = from.Emisor.RFC,
                     RegimenFiscal = TranslateModelsToCatalogosCFDI.TranslateRegimenFiscal(from.Emisor.RegimenFiscal),
                     Nombre = from.Emisor.Nombre
                 },
-                Receptor = new Invoicing.cfdi33.ComprobanteReceptor()
+                Receptor = new InvoicingLibrary.cfdi33.ComprobanteReceptor()
                 {
                     Rfc = from.Receptor.RFC,
                     Nombre = from.Receptor.Nombre,
@@ -33,7 +33,7 @@ namespace Invoicing.Translates
                     ResidenciaFiscalSpecified = false
                     // TODO : Revisar si se implementa la resencia fiscal y el No. de registro tributario para extranjeros   
                 },
-                Complemento = new Invoicing.cfdi33.ComprobanteComplemento()
+                Complemento = new InvoicingLibrary.cfdi33.ComprobanteComplemento()
                 {
                     Items = new object[] { TranslateModelsValesDeDespensa.TranslateTo(from.ValesDespensa) , TranslatesModelsToPagos.TranslateTo( (  from).Pagos) }
                 },

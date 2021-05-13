@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Text;
 using System.IO;
-using Invoicing.Interfaces;
+using InvoicingLibrary.Interfaces;
 using System.Xml.Xsl;
 using System.Xml;
 
-namespace Invoicing.CFDI
+namespace InvoicingLibrary.CFDI
 {
     public class CFDIBase
     {

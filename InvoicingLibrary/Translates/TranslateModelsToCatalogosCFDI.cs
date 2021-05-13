@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Invoicing.Translates
+namespace InvoicingLibrary.Translates
 {
     public class TranslateModelsToCatalogosCFDI
     {

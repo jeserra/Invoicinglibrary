@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Invoicing.BindingModels;
-using Invoicing.cfdi33;
-namespace Invoicing.Translates
+using InvoicingLibrary.BindingModels;
+using InvoicingLibrary.cfdi33;
+namespace InvoicingLibrary.Translates
 {
     public class TranslateModelsToConsumoDeCombustibles
     {

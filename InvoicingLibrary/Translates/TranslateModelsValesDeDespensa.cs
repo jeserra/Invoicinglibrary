@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using InvoicingLibrary.cfdi33;
+
 namespace InvoicingLibrary.Translates
 {
     public class TranslateModelsValesDeDespensa
     {
-        public static Invoicing.cfdi33.ValesDeDespensa TranslateTo(BindingModels.ValesDeDespensa from)
+        public static InvoicingLibrary.cfdi33.ValesDeDespensa TranslateTo(BindingModels.ValesDeDespensa from)
         {
             if (from != null)
             {
@@ -23,7 +24,7 @@ namespace InvoicingLibrary.Translates
                 return null;
         }
 
-        public static List<Invoicing.cfdi33.ValesDeDespensaConcepto> TranslateToConcepto (List<BindingModels.ConceptosValesDespensa> from)
+        public static List<InvoicingLibrary.cfdi33.ValesDeDespensaConcepto> TranslateToConcepto (List<BindingModels.ConceptosValesDespensa> from)
         {
             var to = new List<ValesDeDespensaConcepto>();
             foreach (var item in from)

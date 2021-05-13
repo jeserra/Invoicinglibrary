@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Invoicing.BindingModels;
+using InvoicingLibrary.BindingModels;
 namespace InvoicingLibrary.Translates
 {
     public class TranslateModelImpuestosToCFDI
