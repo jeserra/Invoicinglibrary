@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Invoicing.BindingModels;
+//using InvoicingLibrary.BindingModels;
 using Invoicing.cfdi33;
 namespace Invoicing.Translates
 {
