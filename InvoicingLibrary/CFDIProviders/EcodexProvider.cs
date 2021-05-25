@@ -21,15 +21,15 @@ namespace InvoicingLibrary.CFDIProviders
             get => ConfigurationManager.AppSettings["INTEGRATOR_ID"].ToString();
             
         }
-        public byte[] ObtenerQR(string RFC, String UUID, long transactionId)
+        public async Task<byte[]> ObtenerQR(string RFC, String UUID, long transactionId)
         {
             try
             {
                 TimbradoClient client = new TimbradoClient();
                 SolicitudObtenerQRTimbrado solicitud = new SolicitudObtenerQRTimbrado(RFC, ObtenerToken(RFC, transactionId),  transactionId, UUID);
-                var response = client.ObtenerQRTimbradoAsync(solicitud);
-                InformacionQR qR = new(); //Como se deve optener este objetoto para retornar bien el byte[]
-                return qR.Imagen;
+                var response = await client.ObtenerQRTimbradoAsync(solicitud);
+               
+                return response.QR.Imagen;
             }
             catch (FaultException<Invo.src.Timbrado._2011.CFDI.FallaServicio> serviceFault)
             {
