@@ -67,21 +67,21 @@ namespace Invoicing.Print
             PdfDocument pdfDoc = new PdfDocument(writer);
             Document doc = new Document(pdfDoc);
 
-            Table tableDocto = new Table(new float[] { 4 }).SetWidthPercent(100);  
+            Table tableDocto = new Table(new float[] { 4 }).SetWidth(100);  
         
             Table tableImage = new Table(new float[] { 4, 4 } );
             Table tableEmisorReceptor = new Table(new float[] { 4,6 })
-               // .SetBackgroundColor(Color.PINK)
+               // .SetBackgroundColor(ColorConstants.PINK)
                 .SetBorder(Border.NO_BORDER); 
             Table tableDatosReceptor = new Table(new float[] { 4, 6 })
-                .SetWidthPercent(100);
+                .SetWidth(100);
             Table tableEmisor = new Table(new float[] { 4 , 2   })
-              //  .SetBackgroundColor(Color.YELLOW)
+              //  .SetBackgroundColor(ColorConstants.YELLOW)
                 .SetBorder(Border.NO_BORDER); ;
 
 
           //  tableImage.AddCell(createImageCell(ImageLogo) );
-            tableImage.SetWidthPercent(50);
+            tableImage.SetWidth(50);
             tableImage.SetTextAlignment(TextAlignment.RIGHT);
 
             tableImage.AddCell(getNormalCell("Factura", 24).SetTextAlignment(TextAlignment.CENTER));
@@ -349,7 +349,7 @@ namespace Invoicing.Print
             {
                 //size = -size;
                 cell.SetFontSize(size);
-                cell.SetFontColor(Color.BLACK);
+                cell.SetFontColor(ColorConstants.BLACK);
             }
            // cell.SetNextRenderer(new RoundedCornersCellRenderer(cell));
             cell.SetBorder(Border.NO_BORDER);
@@ -371,12 +371,12 @@ namespace Invoicing.Print
             {
                 //size = -size;
                 cell.SetFontSize(size);
-                cell.SetFontColor(Color.WHITE);
+                cell.SetFontColor(ColorConstants.WHITE);
                 cell.SetBold();
             }
             // cell.SetNextRenderer(new RoundedCornersCellRenderer(cell));
             cell.SetBorder(Border.NO_BORDER);
-            cell.SetBackgroundColor(Color.BLACK);
+            cell.SetBackgroundColor(ColorConstants.BLACK);
             return cell;
         }
 
@@ -395,13 +395,13 @@ namespace Invoicing.Print
             {
                 //size = -size;
                 cell.SetFontSize(size);
-                cell.SetFontColor(Color.BLACK);
+                cell.SetFontColor(ColorConstants.BLACK);
             }
             // cell.SetNextRenderer(new RoundedCornersCellRenderer(cell));
             cell.SetNextRenderer(new RoundedCornersCellRenderer(cell));
             cell.SetPadding(5);
             cell.SetBorder(null);
-           // cell.SetBackgroundColor(Color.GRAY);
+           // cell.SetBackgroundColor(ColorConstants.GRAY);
             return cell;
         }
 
@@ -420,11 +420,11 @@ namespace Invoicing.Print
             {
                 //size = -size;
                 cell.SetFontSize(size);
-                cell.SetFontColor(Color.BLACK);
+                cell.SetFontColor(ColorConstants.BLACK);
             }
             //cell.SetBorder(Border.NO_BORDER);
-            cell.SetBorderLeft(new SolidBorder(Color.BLACK, 1));
-            cell.SetBorderRight(new SolidBorder(Color.BLACK, 1));
+            cell.SetBorderLeft(new SolidBorder(ColorConstants.BLACK, 1));
+            cell.SetBorderRight(new SolidBorder(ColorConstants.BLACK, 1));
             cell.SetPaddingTop(8).SetPaddingBottom(8);
            
             return cell;
@@ -473,14 +473,14 @@ namespace Invoicing.Print
     };
 
             Table table = new Table(new float[] { 5, 1 });
-            table.SetWidthPercent(50);
+            table.SetWidth(50);
             table.SetTextAlignment(TextAlignment.LEFT);
-            table.AddCell(new Cell().Add("Name: " + DATA[0, 0]).SetBorder(Border.NO_BORDER));
-            table.AddCell(new Cell().Add(DATA[0, 1]).SetBorder(Border.NO_BORDER));
-            table.AddCell(new Cell().Add("Surname: " + DATA[1, 0]).SetBorder(Border.NO_BORDER));
-            table.AddCell(new Cell().Add(DATA[1, 1]).SetBorder(Border.NO_BORDER));
-            table.AddCell(new Cell().Add("School: " + DATA[2, 0]).SetBorder(Border.NO_BORDER));
-            table.AddCell(new Cell().Add(DATA[1, 1]).SetBorder(Border.NO_BORDER));
+            table.AddCell(new Cell().Add(new Paragraph("Name: " + DATA[0, 0])).SetBorder(Border.NO_BORDER));
+            table.AddCell(new Cell().Add(new Paragraph(DATA[0, 1])).SetBorder(Border.NO_BORDER));
+            table.AddCell(new Cell().Add(new Paragraph("Surname: " + DATA[1, 0])).SetBorder(Border.NO_BORDER));
+            table.AddCell(new Cell().Add(new Paragraph(DATA[1, 1])).SetBorder(Border.NO_BORDER));
+            table.AddCell(new Cell().Add(new Paragraph("School: " + DATA[2, 0])).SetBorder(Border.NO_BORDER));
+            table.AddCell(new Cell().Add(new Paragraph(DATA[1, 1])).SetBorder(Border.NO_BORDER));
             doc.Add(table);
             doc.Add(table);
 

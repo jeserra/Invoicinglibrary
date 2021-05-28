@@ -22,11 +22,11 @@ using iText.Kernel.Geom;
 using iText.Kernel.Pdf.Canvas;
 using iText.Kernel.Pdf.Xobject;
 
-namespace InvoicingLibrary.Print
+namespace InvoicingLibrary.Test.Print
 {
     public class PrintPDFService
     {
-        public static string ImageLogo { get; set; }
+         public static string ImageLogo { get; set; }
         public static byte[] ImageQR { get; set; }
         public static byte[] ImageLogoMem { get; set; }
 

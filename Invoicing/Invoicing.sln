@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicing", "Invoicing.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicing.Test", "..\Invoicing.Test\Invoicing.Test.csproj", "{E7E8D3C4-5E7A-4896-8387-268FD5F31779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoicingLibrary", "..\InvoicingLibrary\InvoicingLibrary.csproj", "{1CAF44C2-480F-4945-855E-9662D844F021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoicingLibrary", "..\InvoicingLibrary\InvoicingLibrary.csproj", "{1CAF44C2-480F-4945-855E-9662D844F021}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoicingLibrary.Test", "..\InvoicingLibrary.Test\InvoicingLibrary.Test.csproj", "{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,18 @@ Global
 		{1CAF44C2-480F-4945-855E-9662D844F021}.stage|Any CPU.Build.0 = Debug|Any CPU
 		{1CAF44C2-480F-4945-855E-9662D844F021}.stage|x64.ActiveCfg = Debug|Any CPU
 		{1CAF44C2-480F-4945-855E-9662D844F021}.stage|x64.Build.0 = Debug|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.Debug|x64.Build.0 = Debug|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.Release|x64.ActiveCfg = Release|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.Release|x64.Build.0 = Release|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.stage|Any CPU.ActiveCfg = Debug|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.stage|Any CPU.Build.0 = Debug|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.stage|x64.ActiveCfg = Debug|Any CPU
+		{39573BB6-936A-4F4E-A4D1-14DA8AFA21EE}.stage|x64.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

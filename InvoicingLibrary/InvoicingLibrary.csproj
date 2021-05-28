@@ -6,17 +6,19 @@
 
   <ItemGroup>
     <Folder Include="CFDIProviders\" />
-    <Folder Include="Helpers\" />
     <Folder Include="QRProviders\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="itext7" Version="7.0.4" />
+    <PackageReference Include="itext7" Version="7.1.15" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Schema33\consumodecombustibles.cs">
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Update="Schema33\ecb.cs">
       <SubType>code</SubType>
     </Compile>
     <Compile Update="Schema33\valesdedespensa.cs">
