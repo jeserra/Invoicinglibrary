@@ -10,6 +10,6 @@ namespace InvoicingLibrary.Interfaces
     {
         String Timbrar(String RFC, String Comprobante, long transactionId);
 
-        byte[] ObtenerQR(string RFC,  String UUID, long transactionId);
+        Task<byte[]> ObtenerQR(string RFC,  String UUID, long transactionId);
     }
 }
