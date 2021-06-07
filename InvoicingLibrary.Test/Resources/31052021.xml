@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Pagos="http://www.sat.gob.mx/Pagos" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Fecha="0001-01-01T12:00:00" Sello="cKA24i27i0R5TboREsMjSvDmYVI9H4iIWjvcatofpw1AKoMRE5vnsTwwXkSV/NNfPztxVfxdxFY2jvRMsdJZ6a1zbjiu0f0TtSMyoJIC0DBKyZEEa+9/KWwOeK6vkofzXcHkpj52PVdlcOO+3juGU9NZunZMzhwXZUPJjXflOGB2uGiAF2eZ/wk3/lDPcYrUFVuiMloIeZkaNMd3emJVTNGxTvdlOQE5RaL6CHNaGgQTluntjnh4GVm1mCX3K3VsvWZZPeWEEIoVFmjCfmshdC47d3E3BKQ0q99JhiQxKnwsHVEHS6YoKWe3y3O3/lO51sxUcSYQQoMv4VK1ZW8mcA==" FormaPago="01" NoCertificado="20001000000200000258" Certificado="MIIBCgKCAQEAgvvCiCFDFVaYX7xdVRhp/38ULWto/LKDSZy1yrXKpaqFXqERJWF78YHKf3N5GBoXgzwFPuDX+5kvY5wtYNxx/Owu2shNZqFFh6EKsysQMeP5rz6kE1gFYenaPEUP9zj+h0bL3xR5aqoTsqGF24mKBLoiaK44pXBzGzgsxZishVJVM6XbzNJVonEUNbI25DhgWAd86f2aU3BmOH2K1RZx41dtTT56UsszJls4tPFODr/caWuZEuUvLp1M3nj7Dyu88mhD2f+1fA/g7kzcU/1tcpFXF/rIy93APvkU72jwvkrnprzs+SnG81+/F16ahuGsb2EZ88dKHwqxEkwzhMyTbQIDAQAB" CondicionesDePago="Pago al contado" SubTotal="80" Moneda="MXN" Total="100" TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="99100" xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+  <cfdi:Emisor Rfc="DEFE902010DA2" Nombre="Juan perez" RegimenFiscal="611" />
+  <cfdi:Receptor Rfc="RETE901212DCA" Nombre="Pepe perez" UsoCFDI="G01" />
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="01010101" Cantidad="100" ClaveUnidad="M55" Unidad="Radianes" Descripcion="Una madre aqui sin impuestos" ValorUnitario="200" Importe="200">
+      <cfdi:Impuestos>
+        <cfdi:Retenciones>
+          <cfdi:Retencion Base="200" Impuesto="001" TipoFactor="Exento" TasaOCuota="0" Importe="100" />
+        </cfdi:Retenciones>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosRetenidos="100">
+    <cfdi:Retenciones>
+      <cfdi:Retencion Impuesto="001" Importe="100" />
+    </cfdi:Retenciones>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <ValesDeDespensa version="1.0" tipoOperacion="monedero electrónico" registroPatronal="12321321" numeroDeCuenta="21321312" total="122000" xmlns="http://www.sat.gob.mx/valesdedespensa">
+      <Conceptos>
+        <Concepto identificador="777" fecha="2017-12-12T00:00:00" rfc="SEDE810924CK8" curp="Xxxxx" nombre="Juan camaney" numSeguridadSocial="1231232131" importe="100" />
+        <Concepto identificador="777" fecha="2017-12-12T00:00:00" rfc="SEDE810924CK8" curp="Xxxxx" nombre="Juan camaney" numSeguridadSocial="1231232131" importe="100" />
+      </Conceptos>
+    </ValesDeDespensa>
+    <TimbreFiscalDigital Version="1.1" UUID="df87bd4d-5622-4537-aa64-8c06a6d635d9" FechaTimbrado="2021-05-31T16:20:58.1013877-05:00" NoCertificadoSAT="0000000000000000000" xmlns="http://www.sat.gob.mx/TimbreFiscalDigital" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>

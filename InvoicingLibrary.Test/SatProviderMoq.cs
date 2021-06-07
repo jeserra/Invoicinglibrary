@@ -14,7 +14,7 @@ namespace InvoicingLibrary.Test
 {
     public class SatProviderMoq : ISATProvider
     {
-        public byte[] ObtenerQR(string RFC, string UUID, long transactionId)
+        public async Task<byte[]> ObtenerQR(string RFC, string UUID, long transactionId)
         {
             throw new NotImplementedException();
         }

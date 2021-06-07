@@ -39,9 +39,12 @@ namespace InvoicingLibrary.Test.Print
             {
                 foreach (var item in comprobante.Complemento.Items)
                 {
-                    if (item.GetType() == typeof(cfdi33.TimbreFiscalDigital))
+                    if (item != null)
                     {
-                        datosTimbrado = ((cfdi33.TimbreFiscalDigital)item);
+                        if (item.GetType() == typeof(cfdi33.TimbreFiscalDigital))
+                        {
+                            datosTimbrado = ((cfdi33.TimbreFiscalDigital)item);
+                        }
                     }
                 }
             }

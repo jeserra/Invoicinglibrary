@@ -145,7 +145,7 @@ namespace InvoicingLibrary.Test.CFDI
             {
                 var cfdiController = new CFDIv33( _MockRepository, _moqSatProvider);
                 var xmlComprobante = cfdiController.CreateCFDI(_testComprobante);
-                File.WriteAllText(String.Format( @"..\\..\\Resources\\{0}.xml", DateTime.Now.ToString("ddMMyyyy")), xmlComprobante );
+                File.WriteAllText(String.Format(@"D:\\Facturacion\\InvoicingLibrary\\InvoicingLibrary.Test\\Resources\\{0}.xml", DateTime.Now.ToString("ddMMyyyy")), xmlComprobante );
                 Assert.IsTrue(!String.IsNullOrEmpty(xmlComprobante));
             }
             catch (Exception)

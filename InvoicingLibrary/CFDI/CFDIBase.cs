@@ -18,7 +18,7 @@ namespace InvoicingLibrary.CFDI
             SatProvider = satProvider;
         }
          
-        private const string xsltPath = "https://invoicingdefinitions.blob.core.windows.net/xsltxsd/cadenaoriginal_3_3.xslt";
+        private const string xsltPath = "http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt";
          public string XMLToString(System.Xml.XmlDocument xmlDoc)
         {
             StringBuilder sb = new StringBuilder();
