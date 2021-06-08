@@ -25,7 +25,7 @@ namespace InvoicingLibrary.Test.CFDI
         public void InitializeRepository()
         {
             _MockRepository = Substitute.For<ICertificatesRepository>();
-            _MockRepository.GetCertificate("20001000000200000258").ReturnsForAnyArgs(new CertificateMoq());
+            _MockRepository.GetCertificate("30001000000400002321").ReturnsForAnyArgs(new CertificateMoq());
 
             _MoInvoicingRepository = Substitute.For<IInvoicingRepository>();
             _moqSatProvider = new SatProviderMoq();
@@ -46,7 +46,7 @@ namespace InvoicingLibrary.Test.CFDI
                 {
                     Nombre = "Juan perez",
                     RegimenFiscal = "611",
-                    RFC = "DEFE902010DA2"
+                    RFC = "FUNK671228PH6"
                 },
                 Receptor = new BindingModels.Receptor()
                 {
@@ -94,7 +94,7 @@ namespace InvoicingLibrary.Test.CFDI
                                      Importe = 100,
                                       nombre = "Juan camaney",
                                        numSeguridadSocial = "1231232131",
-                                        rfc ="SEDE810924CK8"
+                                        rfc ="FUNK671228PH6"
                              },
                              new BindingModels.ConceptosValesDespensa()
                              {
@@ -196,7 +196,7 @@ namespace InvoicingLibrary.Test.CFDI
         {
 
             var cfdiController = new CFDIv33( _MockRepository, _moqSatProvider);
-            ICertificate certificate = _MockRepository.GetCertificate("20001000000200000258");
+            ICertificate certificate = _MockRepository.GetCertificate("30001000000400002321");
             string OriginalChain = "||3.3|12|12123|2017-06-29T12:00:00|03|20001000000300022815|12312|MXN|14281.92|I|PUE|99100|LAN7008173R5|mi empresa|622|AAA010101AAA|Arlie Cassarubias|G03|01010101|1|1|ZZ|NA|cargo nuevo|12312|12312.000000||";
 
             byte[] SHA256Hash = cfdiController.GetSHA256(OriginalChain);
@@ -208,7 +208,7 @@ namespace InvoicingLibrary.Test.CFDI
 
             System.Security.Cryptography.RSACryptoServiceProvider privateKey = cfdiController.LoadPrivateKeyFromString(secPassPhrase, certificate.KeyFile);
 
-            var expected = "EeIJKNsieBkYpeEFN/2IUOxJcGjs5TNBEvbHpWwu+61OUevVbUARMTBjNC+OKnTFIReUUy6pVKxAQ6p3x24jj6kTnI205/Chca23VAeaJeG8QKfYY32LaKtdaJmDTMxm/79lrLKQfRda4s7abMNCqcXQu+0lk56d5gOc5IiCwSMcc0/DuDYhQ/WaF9vux5M19vPOcN8wyUuiRtaDS3YzLIGRk45BjMaQGhOZ1mk5+wQP9eFaaMfOXVnzlk2fWJtqnb7/B3dIlvFin6Bn6AVhtLkFMrC0plAZJsAVv589/rPiApAEdNCeSvySnJwTZg0ZlQ7c+PGGL7V/dJcYFH1Mrw==";
+            var expected = "Z+M785qEHd2S8FYfLxrBY9pU0QydYmAX+/8HCXm0VF34z+14+ItblvjjeuJ3PwXI2TlUZldJrLo3FnHtpCavtLORfLCGioxr01gBSjMHhKGJoUa+gdQTrgGIpE+YVnwvk/3xKe/UBsdqb3hInRl6K0aT5IygoWZKqm64kJAJerNCebadHZnkxlM4zoyCEKu4QY8vtp9gZAsAtREz0e490e5xSSpcK05ZPqVnTj8n51Y5cJVpMdGUJSHg1/rDv37R/che1wZR1aj+MHH2GJvXYmhWPxnBPVXvnTWxvQFJjaiqqrHPKvKsjBvZ2cSxXOZQ2KcHm9rm+rRPQAOrZslgag==";
 
             var sello = cfdiController .GetSeal(SHA256Hash, privateKey);
             Assert.AreEqual(sello, expected);
