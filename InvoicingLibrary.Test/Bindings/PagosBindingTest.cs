@@ -56,7 +56,7 @@ namespace InvoicingLibrary.Test.Bindings
             {
                 Nombre = "Juan perez",
                 RegimenFiscal = "612",
-                RFC = "LAN7008173R5"
+                RFC = "FUNK671228PH6"
             };
             _testPago.Receptor = new BindingModels.Receptor()
             {

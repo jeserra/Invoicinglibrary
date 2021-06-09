@@ -34,8 +34,9 @@ namespace InvoicingLibrary.Test.Print
         {
             
             var datosTimbrado = new cfdi33.TimbreFiscalDigital();
-
-            if(comprobante.Complemento.Items !=null)
+            Boolean timbreFiscal = false;
+            //Validar existencia de Timbre fiscal, en su ausencia generarlo.
+            if (comprobante.Complemento.Items !=null)
             {
                 foreach (var item in comprobante.Complemento.Items)
                 {
@@ -44,8 +45,23 @@ namespace InvoicingLibrary.Test.Print
                         if (item.GetType() == typeof(cfdi33.TimbreFiscalDigital))
                         {
                             datosTimbrado = ((cfdi33.TimbreFiscalDigital)item);
+                            timbreFiscal = true;
                         }
                     }
+                }
+                if (timbreFiscal == false)
+                {
+                    datosTimbrado = new cfdi33.TimbreFiscalDigital()
+                    {
+                        FechaTimbrado = DateTime.Now,
+                        Leyenda = "Comprobante no timbrado",
+                        NoCertificadoSAT = "00000000000000000000",
+                        RfcProvCertif = "XAXX000000AAA",
+                        SelloCFD = "sdasfofkdofsdodadosas",
+                        SelloSAT = "sdayfeewyeadsd",
+                        UUID = Guid.Empty.ToString(),
+
+                    };
                 }
             }
             else
@@ -56,17 +72,16 @@ namespace InvoicingLibrary.Test.Print
                     Leyenda = "Comprobante no timbrado",
                     NoCertificadoSAT = "00000000000000000000",
                     RfcProvCertif = "XAXX000000AAA",
-                    SelloCFD = string.Empty,
-                    SelloSAT = string.Empty,
+                    SelloCFD = "sdasdasdasdas",
+                    SelloSAT = "sdasdasdasdas",
                     UUID = Guid.Empty.ToString(),
 
                 };
             }
 
-          
-             
-            var writer = new PdfWriter(stream);
+
             
+            var writer = new PdfWriter(stream);
             PdfDocument pdfDoc = new PdfDocument(writer);
             Document doc = new Document(pdfDoc);
 
@@ -187,24 +202,28 @@ namespace InvoicingLibrary.Test.Print
 
                 if (item.Impuestos != null)
                 {
-                    if (item.Impuestos.Traslados.Length > 0)
+
+                    if (item.Impuestos.Traslados != null)
                     {
-                        tableConceptos.AddCell(getHeaderCell("Impuestos Trasladados", 9));
-                        tableConceptos.AddCell(getHeaderCell("Base", 9));
-                        tableConceptos.AddCell(getHeaderCell("TipoFactor ", 9));
-                        tableConceptos.AddCell(getHeaderCell("Tasa o Cuota", 9));
-                        tableConceptos.AddCell(getHeaderCell("Impuesto", 9));
-                        tableConceptos.AddCell(getHeaderCell("Importe", 9));
-
-                        foreach (var taxitem in item.Impuestos.Traslados)
+                        if (item.Impuestos.Traslados.Length > 0)
                         {
-                            tableConceptos.AddCell(getGridCell(string.Empty, 9));
-                            tableConceptos.AddCell(getGridCell(taxitem.Base.ToString(), 9));
-                            tableConceptos.AddCell(getGridCell(taxitem.TipoFactor.ToString(), 9));
-                            tableConceptos.AddCell(getGridCell(taxitem.TasaOCuota.ToString().Replace("Item", ""), 9));
-                            tableConceptos.AddCell(getGridCell(taxitem.Impuesto.ToString().Replace("Item", ""), 9));
-                            tableConceptos.AddCell(getGridCell(taxitem.Importe.ToString(), 9));
+                            tableConceptos.AddCell(getHeaderCell("Impuestos Trasladados", 9));
+                            tableConceptos.AddCell(getHeaderCell("Base", 9));
+                            tableConceptos.AddCell(getHeaderCell("TipoFactor ", 9));
+                            tableConceptos.AddCell(getHeaderCell("Tasa o Cuota", 9));
+                            tableConceptos.AddCell(getHeaderCell("Impuesto", 9));
+                            tableConceptos.AddCell(getHeaderCell("Importe", 9));
 
+                            foreach (var taxitem in item.Impuestos.Traslados)
+                            {
+                                tableConceptos.AddCell(getGridCell(string.Empty, 9));
+                                tableConceptos.AddCell(getGridCell(taxitem.Base.ToString(), 9));
+                                tableConceptos.AddCell(getGridCell(taxitem.TipoFactor.ToString(), 9));
+                                tableConceptos.AddCell(getGridCell(taxitem.TasaOCuota.ToString().Replace("Item", ""), 9));
+                                tableConceptos.AddCell(getGridCell(taxitem.Impuesto.ToString().Replace("Item", ""), 9));
+                                tableConceptos.AddCell(getGridCell(taxitem.Importe.ToString(), 9));
+
+                            }
                         }
                     }
                 }
@@ -240,7 +259,10 @@ namespace InvoicingLibrary.Test.Print
             datosSAT.AddCell(getNormalCell("Sello Digital del Emisor", 7, 1, 1));
 
             int sizeRow = 120;
+
+            //Error
             int maxRows = comprobante.Sello.Length / sizeRow;
+            
 
             int i = 0;
             for (int x = 0; x <= maxRows; x++)
@@ -259,8 +281,9 @@ namespace InvoicingLibrary.Test.Print
          
              datosSAT.AddCell(getNormalCell("Sello Original del SAT", 7, 1, 1));
             //Marrano
-
+            //vaidar
             i = 0;
+            datosTimbrado.SelloSAT = "dasdasdasdasdsdsada";
             maxRows = datosTimbrado.SelloSAT.Length / sizeRow;
             for (int x = 0; x <= maxRows; x++)
             {
