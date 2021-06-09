@@ -21,6 +21,7 @@ using iText.Layout.Layout;
 using iText.Kernel.Geom;
 using iText.Kernel.Pdf.Canvas;
 using iText.Kernel.Pdf.Xobject;
+using InvoicingLibrary.CFDI;
 
 namespace InvoicingLibrary.Print
 {
@@ -30,10 +31,12 @@ namespace InvoicingLibrary.Print
         public static byte[] ImageQR { get; set; }
         public static byte[] ImageLogoMem { get; set; }
 
-        public static void PrintCFDIPDF( cfdi33.Comprobante comprobante, ref  MemoryStream stream )
+        
+        public static void PrintCFDIPDFFromCfdi33(cfdi33.Comprobante comprobante, ref  MemoryStream stream )
         {
             
             var datosTimbrado = new cfdi33.TimbreFiscalDigital();
+            Boolean timbreFiscal = false;
 
             if(comprobante.Complemento.Items !=null)
             {
@@ -42,7 +45,22 @@ namespace InvoicingLibrary.Print
                     if (item.GetType() == typeof(cfdi33.TimbreFiscalDigital))
                     {
                         datosTimbrado = ((cfdi33.TimbreFiscalDigital)item);
+                        timbreFiscal = true;
                     }
+                }
+                if (timbreFiscal == false)
+                {
+                    datosTimbrado = new cfdi33.TimbreFiscalDigital()
+                    {
+                        FechaTimbrado = DateTime.Now,
+                        Leyenda = "Comprobante no timbrado",
+                        NoCertificadoSAT = "00000000000000000000",
+                        RfcProvCertif = "XAXX000000AAA",
+                        SelloCFD = "sdasfofkdofsdodadosas",
+                        SelloSAT = "sdayfeewyeadsd",
+                        UUID = Guid.Empty.ToString(),
+
+                    };
                 }
             }
             else
@@ -53,8 +71,8 @@ namespace InvoicingLibrary.Print
                     Leyenda = "Comprobante no timbrado",
                     NoCertificadoSAT = "00000000000000000000",
                     RfcProvCertif = "XAXX000000AAA",
-                    SelloCFD = string.Empty,
-                    SelloSAT = string.Empty,
+                    SelloCFD = "sdasfofkdofsdodadosas",
+                    SelloSAT = "sdayfeewyeadsd",
                     UUID = Guid.Empty.ToString(),
 
                 };
@@ -462,7 +480,7 @@ namespace InvoicingLibrary.Print
 
     public static void PrintCFDI( )
         {
-            var dest = "..\\..\\Resources\\output.pdf";
+            var dest = "C:\\Users\\Bemol\\Desktop\\output.pdf";
             PdfDocument pdfDoc = new PdfDocument(new PdfWriter(dest));
             Document doc = new Document(pdfDoc);
 

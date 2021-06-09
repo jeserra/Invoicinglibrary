@@ -11,8 +11,8 @@ namespace InvoicingLibrary.Test.Certifcate
         
         private void Initialize ()
         {
-           var pathCer = @"C:\\Users\\Bemol\\Documents\\Desarrollo\\Proyectos\\TRSF\\Facturacion\\InvoicingLibrary\\InvoicingLibrary.Test\\Resources\\CSD_Pruebas_CFDI_LAN7008173R5.cer";
-           var pathKey = @"C:\\Users\\Bemol\\Documents\\Desarrollo\\Proyectos\\TRSF\\Facturacion\\InvoicingLibrary\\InvoicingLibrary.Test\\Resources\\CSD_Pruebas_CFDI_LAN7008173R5.key";
+           var pathCer = @"C:\\Users\\Bemol\\Documents\\Desarrollo\\Proyectos\\TRSF\\Facturacion\\InvoicingLibrary\\InvoicingLibrary.Test\\Resources\\CSD_KARLA_FUENTE_NOLASCO_FUNK671228PH6_20190528_174243s.cer";
+           var pathKey = @"C:\\Users\\Bemol\\Documents\\Desarrollo\\Proyectos\\TRSF\\Facturacion\\InvoicingLibrary\\InvoicingLibrary.Test\\Resources\\CSD_KARLA_FUENTE_NOLASCO_FUNK671228PH6_20190528_174243.key";
             X509Certificate x509Certificate = new X509Certificate(pathCer);
               
             CerFile = Convert.ToBase64String(x509Certificate.GetPublicKey());
