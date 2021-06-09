@@ -182,7 +182,7 @@ namespace InvoicingLibrary.Test.Bindings
 
             System.Security.Cryptography.RSACryptoServiceProvider privateKey = cfdiController.LoadPrivateKeyFromString(secPassPhrase, certificate.KeyFile);
 
-            var expected = "EeIJKNsieBkYpeEFN/2IUOxJcGjs5TNBEvbHpWwu+61OUevVbUARMTBjNC+OKnTFIReUUy6pVKxAQ6p3x24jj6kTnI205/Chca23VAeaJeG8QKfYY32LaKtdaJmDTMxm/79lrLKQfRda4s7abMNCqcXQu+0lk56d5gOc5IiCwSMcc0/DuDYhQ/WaF9vux5M19vPOcN8wyUuiRtaDS3YzLIGRk45BjMaQGhOZ1mk5+wQP9eFaaMfOXVnzlk2fWJtqnb7/B3dIlvFin6Bn6AVhtLkFMrC0plAZJsAVv589/rPiApAEdNCeSvySnJwTZg0ZlQ7c+PGGL7V/dJcYFH1Mrw==";
+            var expected = "eHcQtrm2+BegDryMDqIplJlFdlufD92BtwpMHBVIqu4hKdW9NTfgNwVvkfolSslHec/UdCCa9GvJhjxTsU+JeJ0Aq3HoDGGvgJs/2r19LPMki3BVdA6U0jF8i2ZG12v5rxo1EhXsmk8/X/1FZxpCh5Bk9uiaKsPn82E5ZG58lyhcS9R0NHMQO6GQ/oZnz/wKWPaR4wOk9qzDa0BRRr4A6Xr0BWWwOVJ4gUyZYZoJ/rEZ3TFQLngLNMNMdkl6I5wCtNe6paxyiu81kRJKi0E4KYQ1gwA0JZrHspkgYjFUzFo+6QsLF5RbhsvPbFQCjfy0n+ATtdmqiWcC/MIByrHqFA==";
 
             var sello = cfdiController.GetSeal(SHA256Hash, privateKey);
             Assert.AreEqual(sello, expected);

@@ -23,6 +23,6 @@
         <Concepto identificador="777" fecha="2017-12-12T00:00:00" rfc="SEDE810924CK8" curp="Xxxxx" nombre="Juan camaney" numSeguridadSocial="1231232131" importe="100" />
       </Conceptos>
     </ValesDeDespensa>
-    <TimbreFiscalDigital Version="1.1" UUID="8befd8bb-fe5a-4c63-810d-4ac250ac7383" FechaTimbrado="2021-06-09T16:23:07.8955779-05:00" NoCertificadoSAT="0000000000000000000" xmlns="http://www.sat.gob.mx/TimbreFiscalDigital" />
+    <TimbreFiscalDigital Version="1.1" UUID="ccc16f0d-ea7f-4689-866a-9034284f945b" FechaTimbrado="2021-06-09T16:38:08.8501042-05:00" NoCertificadoSAT="0000000000000000000" xmlns="http://www.sat.gob.mx/TimbreFiscalDigital" />
   </cfdi:Complemento>
 </cfdi:Comprobante>

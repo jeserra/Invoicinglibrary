@@ -137,14 +137,14 @@ namespace InvoicingLibrary.Test.CFDI
                 PrintPDFService.PrintCFDIPDF(testComprobanteDos, ref stream);
                 byte[] byteStream = stream.ToArray();
                 var a = 10;
-                using (FileStream fs = File.Create("C:\\Users\\Bemol\\Desktop\\output.pdf"))
+                using (FileStream fs = File.Create(@"..\\..\\..\\Resources\\output.pdf"))
                 {
                     var b = 10;
                     fs.Write(byteStream, 0, (int)byteStream.Length);
                 }
                               
             }
-            catch(Exception)
+            catch(Exception e)
             {
                 Assert.Fail();
             }
