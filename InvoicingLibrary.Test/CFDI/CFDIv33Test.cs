@@ -5,7 +5,6 @@ using InvoicingLibrary.CFDI;
 using NSubstitute;
 using InvoicingLibrary.Interfaces;
 using InvoicingLibrary.Translates;
-
 using InvoicingLibrary.Test.Certifcate;
 using Newtonsoft.Json;
 using ProcessCFDI.Controllers;
