@@ -44,7 +44,6 @@ namespace Invoicing.Test.CFDI
                     ResidenciaFiscal = c_Pais.MAR,
                     UsoCFDI = c_UsoCFDI.P01
                 },
-                
                 Conceptos = new cfdi33.ComprobanteConcepto[]
                  {
                      new cfdi33.ComprobanteConcepto()
